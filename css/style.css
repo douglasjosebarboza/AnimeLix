@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --cor-bg--principal: #0B8EE3;
+    --cor-lt--01: #6E0BE3;
+    --cor-lt--02: #FF00FF;
+}
+
+header{
+    background-color: var(--cor-bg--principal);
+    width: 100vw;
+    height: 75px;
+}
+
+.header-container{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header-container--namelogo{
+    margin: 0 10px;
+}
+
+
+.header--namelogo{
+    width: 100%;
+    height: 100%;
+    color:white;
+    font-size: 2em;
+    font-weight: bolder;
+    text-shadow: 0 0 7px black;
+}
+
+.header-namelogo--blue{
+    color: var(--cor-lt--02);
+}
+
+.header-namelogo--pink{
+    color: var(--cor-lt--01);
+}
+
+.header-container--search{
+    width: 50%;
+    margin: 0 10px;
+}
+
+.header--search{
+    width: 100%;
+    min-height: 40px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.356);
+    padding: 0 7px;
+}
+.header--search:focus{
+    outline: 0;
+}
+
+.header-container--nav{
+    margin: 0 10px;
+}
+
+.header--nav{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 20px;
+}
+
+.header-nav--items{
+    width: 70px;
+    height: 100%;
+    background-color: var(--cor-lt--01);
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition-duration: 0.5s;
+}
+.header-nav--items:hover{
+    background-color: var(--cor-lt--02);
+    width: 80px;
+}
+
+main{
+    width: 100vw;
+    height: 100%;
+    background-color: #56b0ec;
+}
+
+.container-main{
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+    width: 80%;
+    min-height: 800px;
+}
+
+.container-main--anime{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    max-height: 350px;
+    padding: 10px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-main-anime--poster{
+    max-width: 200px;
+    max-height: 350px;
+}
+
+.anime--poster{
+    width: 200px;
+    height: 300px;
+}
+
+.anime--title{
+    max-width: 200px;
+    text-align: center;
+}
+
+footer{
+    height: 5vh;
+    text-align: center;
+    background-color: var(--cor-bg--principal);
+}
+
+.footer-container--text{
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white
+}
+
+.footer-container--text  a{
+    text-decoration: none;
+    color: var(--cor-lt--01);
+    transition-duration: 0.25s;
+}
+.footer-container--text  a:hover{
+    font-size: 1.1em;
+    color: var(--cor-lt--02);
+}
