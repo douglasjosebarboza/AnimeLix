@@ -126,11 +126,19 @@ main{
 .anime--poster{
     width: 200px;
     height: 300px;
+    transition-duration: 0.5s;
+}
+.anime--poster:hover{
+    width: 220px;
+    height: 320px;
 }
 
 .anime--title{
     max-width: 200px;
     text-align: center;
+}
+.anime--title:hover{
+    max-width: 220px;
 }
 
 footer{
