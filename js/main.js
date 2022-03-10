@@ -57,17 +57,17 @@ const pesquisaInput = async () => {
     console.log(jsonDados);
     for(i = 0; i < jsonDados.results.length; i++){
         let divMain = document.querySelector(".container-main")
-            let divAnimeContainer = document.createElement("div")
-            divMain.appendChild(divAnimeContainer)
-            divAnimeContainer.classList.add("container-main--anime")
-            let imgPoster = document.createElement("img")
-            let titleAnime = document.createElement("p")
-            divAnimeContainer.appendChild(imgPoster)
-            imgPoster.classList.add("anime--poster")
-            divAnimeContainer.appendChild(titleAnime)
-            titleAnime.classList.add("anime--title")
-            imgPoster.src = jsonDados.results[i].image_url
-            titleAnime.innerHTML = jsonDados.results[i].title
+        let divAnimeContainer = document.createElement("div")
+        divMain.appendChild(divAnimeContainer)
+        divAnimeContainer.classList.add("container-main--anime")
+        let imgPoster = document.createElement("img")
+        let titleAnime = document.createElement("p")
+        divAnimeContainer.appendChild(imgPoster)
+        imgPoster.classList.add("anime--poster")
+        divAnimeContainer.appendChild(titleAnime)
+        titleAnime.classList.add("anime--title")
+        imgPoster.src = jsonDados.results[i].image_url
+        titleAnime.innerHTML = jsonDados.results[i].title
     }
     console.log(jsonDados.results[50].title);
 }
