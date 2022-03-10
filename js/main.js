@@ -39,9 +39,7 @@ const pesquisaInput = async () => {
     for(i = titleAnime.length - 1; i >= 0; i--){
         titleAnime[i].remove()
     }
-
     const text = document.getElementById("input").value
-    console.log(text)
     if(text === ''){
         pesquisaInicialApi()
     }
@@ -54,7 +52,6 @@ const pesquisaInput = async () => {
         }
     })
     const jsonDados = await dados.json()
-    console.log(jsonDados);
     for(i = 0; i < jsonDados.results.length; i++){
         let divMain = document.querySelector(".container-main")
         let divAnimeContainer = document.createElement("div")
@@ -69,7 +66,6 @@ const pesquisaInput = async () => {
         imgPoster.src = jsonDados.results[i].image_url
         titleAnime.innerHTML = jsonDados.results[i].title
     }
-    console.log(jsonDados.results[50].title);
 }
 
 document.getElementById("input").addEventListener('focusout', pesquisaInput)

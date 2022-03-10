@@ -102,6 +102,7 @@ main{
     display: flex;
     margin: auto;
     flex-wrap: wrap;
+    justify-content: center;
     padding: 20px;
     gap: 20px;
     width: 80%;
