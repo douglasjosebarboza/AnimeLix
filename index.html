@@ -11,17 +11,17 @@
     <header>
         <div class="header-container">
             <div class="header-container--namelogo">
-                <p class="header--namelogo"><span class="header-namelogo--blue">A</span>nime<span class="header-namelogo--pink">L</span>ix</p>
+                <p class="header--namelogo" onclick="pesquisaInicialApi()"><span class="header-namelogo--blue">A</span>nime<span class="header-namelogo--pink">L</span>ix</p>
             </div>
             <div class="header-container--search">
                 <input class="header--search" id="input" type="search" placeholder="Digite o nome do anime" >
             </div>
             <div class="header-container--nav">
                 <nav class="header--nav">
-                    <a class="header-nav--items" href="#">Ação</a>
-                    <a class="header-nav--items" href="#">Drama</a>
-                    <a class="header-nav--items" href="#">Romance</a>
-                    <a class="header-nav--items" href="#">Comédia</a>
+                    <button class="header-nav--items" onclick="pesquisaActionAnimes()">Ação</button>
+                    <button class="header-nav--items" onclick="pesquisaDramaAnimes()">Drama</button>
+                    <button class="header-nav--items" onclick="pesquisaRomanceAnimes()">Romance</button>
+                    <button class="header-nav--items" onclick="pesquisaComedyAnimes()">Comédia</button>
                 </nav>
             </div>
         </div>

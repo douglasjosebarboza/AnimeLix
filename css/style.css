@@ -17,7 +17,7 @@
 
 header{
     background-color: var(--cor-bg--principal);
-    width: 100vw;
+    width: 100%;
     height: 75px;
 }
 
@@ -44,6 +44,12 @@ header{
     font-size: 2em;
     font-weight: bolder;
     text-shadow: 0 0 7px black;
+    transition-duration: 0.25s ;
+}
+
+.header--namelogo:hover{
+    font-size: 2.2em;
+    cursor: pointer;
 }
 
 .header-namelogo--blue{
@@ -67,6 +73,10 @@ header{
     border-radius: 20px;
     box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.356);
     padding: 0 7px;
+    transition-duration: 0.25s;
+}
+.header--search:hover{
+    transform: scale(1.02);
 }
 .header--search:focus{
     outline: 0;
@@ -88,6 +98,7 @@ header{
     height: 100%;
     background-color: var(--cor-lt--01);
     padding: 5px;
+    border: none;
     border-radius: 10px;
     font-family: var(--fonte-title--animes);
     text-align: center;
@@ -98,13 +109,15 @@ header{
 .header-nav--items:hover{
     background-color: var(--cor-lt--02);
     width: 80px;
+    cursor: pointer;
 }
 
 main{
-    width: 100vw;
+    width: 100%;
     height: 100%;
     background-image: linear-gradient(to bottom, purple, rgb(56, 3, 56) 70%);
     background-attachment: fixed;
+    box-shadow: inset 0px 7px 15px rgba(0, 0, 0, 0.5);
 }
 
 .container-main{
@@ -161,6 +174,7 @@ footer{
     height: 5vh;
     text-align: center;
     background-color: var(--cor-bg--principal);
+    box-shadow: 0px -7px 10px rgba(0, 0, 0, 0.692);
 }
 
 .footer-container--text{
