@@ -1,3 +1,7 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -7,6 +11,8 @@
     --cor-bg--principal: #0B8EE3;
     --cor-lt--01: #6E0BE3;
     --cor-lt--02: #FF00FF;
+    --fonte-title--animes: 'Nunito', sans-serif;
+    --fonte-logo--name: 'Caveat', cursive;
 }
 
 header{
@@ -34,6 +40,7 @@ header{
     width: 100%;
     height: 100%;
     color:white;
+    font-family: var(--fonte-title--animes);
     font-size: 2em;
     font-weight: bolder;
     text-shadow: 0 0 7px black;
@@ -53,6 +60,7 @@ header{
 }
 
 .header--search{
+    font-family: var(--fonte-title--animes);
     width: 100%;
     min-height: 40px;
     border: none;
@@ -81,6 +89,7 @@ header{
     background-color: var(--cor-lt--01);
     padding: 5px;
     border-radius: 10px;
+    font-family: var(--fonte-title--animes);
     text-align: center;
     text-decoration: none;
     color: white;
@@ -138,6 +147,8 @@ main{
 }
 
 .anime--title{
+    font-family: var(--fonte-title--animes);
+    font-size: 1.1em;
     max-width: 200px;
     text-align: center;
     color: white;
