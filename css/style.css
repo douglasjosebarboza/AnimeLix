@@ -108,7 +108,7 @@ header{
 }
 .header-nav--items:hover{
     background-color: var(--cor-lt--02);
-    width: 80px;
+    transform: scale(1.1);
     cursor: pointer;
 }
 
@@ -165,9 +165,6 @@ main{
     max-width: 200px;
     text-align: center;
     color: white;
-}
-.anime--title:hover{
-    max-width: 220px;
 }
 
 footer{
