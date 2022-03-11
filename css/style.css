@@ -157,6 +157,7 @@ main{
 .anime--poster:hover{
     width: 220px;
     height: 320px;
+    cursor: pointer;
 }
 
 .anime--title{

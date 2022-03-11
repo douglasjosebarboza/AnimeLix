@@ -1,9 +1,45 @@
 let dados
 let jsonDados
+let id
+let idAnime = []
 
-const showAnimes = () => {
-    for(i = 0; i < jsonDados.anime.length; i++){
-        if(jsonDados.anime[i].explicit_genres.length === 0){
+const idAnimes = (i, type) => {
+    if(type === 'anime'){
+        idAnime.push(jsonDados.anime[i].mal_id)
+        console.log(idAnime);
+    }
+    else if(type === 'results'){
+        idAnime.push(jsonDados.results[i].mal_id)
+        console.log(idAnime);
+    }
+}
+
+const removeIds = () => {
+    idAnime.length = 0
+}
+
+const showAnimes = (param) => {
+    if (param === 'anime'){
+        for(i = 0; i < jsonDados.anime.length; i++){
+            if(jsonDados.anime[i].explicit_genres.length === 0){
+                let divMain = document.querySelector(".container-main")
+                let divAnimeContainer = document.createElement("div")
+                divMain.appendChild(divAnimeContainer)
+                divAnimeContainer.classList.add("container-main--anime")
+                let imgPoster = document.createElement("img")
+                let titleAnime = document.createElement("p")
+                divAnimeContainer.appendChild(imgPoster)
+                imgPoster.classList.add("anime--poster")
+                divAnimeContainer.appendChild(titleAnime)
+                titleAnime.classList.add("anime--title")
+                imgPoster.src = jsonDados.anime[i].image_url
+                titleAnime.innerHTML = jsonDados.anime[i].title
+                idAnimes(i, 'anime')
+            }
+        }
+    }
+    else if(param === 'results'){
+        for(i = 0; i < jsonDados.results.length; i++){
             let divMain = document.querySelector(".container-main")
             let divAnimeContainer = document.createElement("div")
             divMain.appendChild(divAnimeContainer)
@@ -14,27 +50,27 @@ const showAnimes = () => {
             imgPoster.classList.add("anime--poster")
             divAnimeContainer.appendChild(titleAnime)
             titleAnime.classList.add("anime--title")
-            imgPoster.src = jsonDados.anime[i].image_url
-            titleAnime.innerHTML = jsonDados.anime[i].title
+            imgPoster.src = jsonDados.results[i].image_url
+            titleAnime.innerHTML = jsonDados.results[i].title
+            idAnimes(i, 'results')
         }
     }
-}
-
-const showResults = () => {
-    for(i = 0; i < jsonDados.results.length; i++){
-        let divMain = document.querySelector(".container-main")
-        let divAnimeContainer = document.createElement("div")
-        divMain.appendChild(divAnimeContainer)
-        divAnimeContainer.classList.add("container-main--anime")
-        let imgPoster = document.createElement("img")
-        let titleAnime = document.createElement("p")
-        divAnimeContainer.appendChild(imgPoster)
-        imgPoster.classList.add("anime--poster")
-        divAnimeContainer.appendChild(titleAnime)
-        titleAnime.classList.add("anime--title")
-        imgPoster.src = jsonDados.results[i].image_url
-        titleAnime.innerHTML = jsonDados.results[i].title
-    }
+    // else if(param === 'episodes'){
+    //     for(i = 0; i < jsonDados.episodes.length; i++){
+    //         let divMain = document.querySelector(".container-main")
+    //         let divAnimeContainer = document.createElement("div")
+    //         divMain.appendChild(divAnimeContainer)
+    //         divAnimeContainer.classList.add("container-main--anime")
+    //         let imgPoster = document.createElement("img")
+    //         let titleAnime = document.createElement("p")
+    //         divAnimeContainer.appendChild(imgPoster)
+    //         imgPoster.classList.add("anime--poster")
+    //         divAnimeContainer.appendChild(titleAnime)
+    //         titleAnime.classList.add("anime--title")
+    //         imgPoster.src = jsonDados.episodes[i].image_url
+    //         titleAnime.innerHTML = jsonDados.episodes[i].title
+    //     }
+    //}
 }
 
 const removeContent = () => {
@@ -50,6 +86,7 @@ const removeContent = () => {
     for(i = titleAnime.length - 1; i >= 0; i--){
         titleAnime[i].remove()
     }
+    removeIds()
 }
 
 const pesquisaInicialApi = async() => {
@@ -62,7 +99,7 @@ const pesquisaInicialApi = async() => {
     })
     jsonDados = await dados.json()
     removeContent()
-    showAnimes()
+    showAnimes('anime')
 }
 
 const pesquisaInput = async () => {
@@ -80,7 +117,7 @@ const pesquisaInput = async () => {
         }
     })
     jsonDados = await dados.json()
-    showResults()
+    showAnimes('results')
 }
 
 const pesquisaActionAnimes = async () => {
@@ -93,7 +130,7 @@ const pesquisaActionAnimes = async () => {
     })
     jsonDados = await dados.json()
     removeContent()    
-    showAnimes()
+    showAnimes('anime')
 }
 
 const pesquisaDramaAnimes = async () => {
@@ -106,7 +143,7 @@ const pesquisaDramaAnimes = async () => {
     })
     jsonDados = await dados.json()
     removeContent()    
-    showAnimes()
+    showAnimes('anime')
 }
 
 const pesquisaRomanceAnimes = async () => {
@@ -119,7 +156,7 @@ const pesquisaRomanceAnimes = async () => {
     })
     jsonDados = await dados.json()
     removeContent()  
-    showAnimes()
+    showAnimes('anime')
 }
 
 const pesquisaComedyAnimes = async () => {
@@ -132,10 +169,23 @@ const pesquisaComedyAnimes = async () => {
     })
     jsonDados = await dados.json()
     removeContent()   
-    showAnimes()
+    showAnimes('anime')
 }
 
 document.getElementById("input").addEventListener('focusout', pesquisaInput)
 pesquisaInicialApi()
 
 
+// const animeInfos = async() => {
+//    dados = await fetch("https://jikan1.p.rapidapi.com/anime/16498/videos", {
+//        "method": "GET",
+//        "headers": {
+//            "x-rapidapi-host": "jikan1.p.rapidapi.com",
+//            "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
+//         }
+//     })
+//     jsonDados = await dados.json()
+//     showAnimes('episodes')
+// }
+
+// animeInfos()
