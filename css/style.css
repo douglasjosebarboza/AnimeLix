@@ -35,10 +35,7 @@ header{
     margin: 0 10px;
 }
 
-
 .header--namelogo{
-    width: 100%;
-    height: 100%;
     color:white;
     font-family: var(--fonte-title--animes);
     font-size: 2em;
@@ -48,8 +45,7 @@ header{
 }
 
 .header--namelogo:hover{
-    font-size: 2.2em;
-    cursor: pointer;
+    font-size: 2em;
 }
 
 .header-namelogo--blue{
@@ -88,9 +84,13 @@ header{
 
 .header--nav{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     width: 100%;
     gap: 20px;
+}
+
+.header-nav-button--mobile{
+    display: none;
 }
 
 .header-nav--items{
@@ -107,9 +107,7 @@ header{
     transition-duration: 0.5s;
 }
 .header-nav--items:hover{
-    background-color: var(--cor-lt--02);
-    transform: scale(1.1);
-    cursor: pointer;
+    transform: scale(1);
 }
 
 main{
@@ -155,9 +153,7 @@ main{
     transition-duration: 0.5s;
 }
 .anime--poster:hover{
-    width: 220px;
-    height: 320px;
-    cursor: pointer;
+
 }
 
 .anime--title{
@@ -190,6 +186,58 @@ footer{
     transition-duration: 0.25s;
 }
 .footer-container--text  a:hover{
-    font-size: 1.1em;
-    color: var(--cor-lt--02);
+    font-size: 1em;
 }
+
+@media(min-width: 768px){
+
+    .header--namelogo:hover{
+        font-size: 2.2em;
+        cursor: pointer;
+    }
+
+    .header--search:hover{
+        transform: scale(1.02);
+    }
+
+    .header-nav--items:hover{
+        background-color: var(--cor-lt--02);
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
+    .anime--poster:hover{
+        width: 220px;
+        height: 320px;
+        cursor: pointer;
+    }
+
+    .footer-container--text  a:hover{
+        font-size: 1.1em;
+        color: var(--cor-lt--02);
+    }
+}
+
+    /* .header-container--namelogo{
+        padding: auto;
+        width: 15%;
+        margin: 0 10px;
+    }
+    
+    .header--namelogo{
+        padding: auto;
+        transform: scale(0.7);
+    }
+
+    .header-container--search{
+        padding: auto;
+        width: 50%;
+        margin: 0 10px;
+    }
+    
+    .header--search{
+        width: 100%;
+        min-height: 20px;
+        border-radius: 10px;
+    } */
+
