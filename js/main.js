@@ -101,6 +101,7 @@ const pesquisaInicialApi = async() => {
 }
 
 const pesquisaInput = async () => {
+    console.log('funciona');
     removeContent()
     const text = document.getElementById("input").value
     if(text === ''){
@@ -170,7 +171,11 @@ const pesquisaComedyAnimes = async () => {
     showAnimes('anime')
 }
 
-document.getElementById("input").addEventListener('focusout', pesquisaInput)
+document.getElementById("input").addEventListener('keypress', function(evento){
+    if (evento.code === 'Enter'){
+        pesquisaInput()
+    }  
+})
 pesquisaInicialApi()
 
 
