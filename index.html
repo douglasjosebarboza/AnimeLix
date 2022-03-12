@@ -12,16 +12,24 @@
         <div class="header-container">
             <div class="header-container--namelogo">
                 <p class="header--namelogo" onclick="pesquisaInicialApi()"><span class="header-namelogo--blue">A</span>nime<span class="header-namelogo--pink">L</span>ix</p>
+                <p class="header--namelogo-oculto" onclick="pesquisaInicialApi()"><span class="header-namelogo--blue">A</span><span class="header-namelogo--pink">L</span></p>
             </div>
             <div class="header-container--search">
                 <input class="header--search" id="input" type="search" placeholder="Digite o nome do anime" >
             </div>
             <div class="header-container--nav">
                 <nav class="header--nav">
-                    <button class="header-nav--items" onclick="pesquisaActionAnimes()">Ação</button>
-                    <button class="header-nav--items" onclick="pesquisaDramaAnimes()">Drama</button>
-                    <button class="header-nav--items" onclick="pesquisaRomanceAnimes()">Romance</button>
-                    <button class="header-nav--items" onclick="pesquisaComedyAnimes()">Comédia</button>
+                    <input type="checkbox" id="header-input--mobile">
+                    <label for="header-input--mobile">
+                        <div class="header-nav-div--mobile"><span class="header-nav-div-span--mobile"></span>
+                        </div>
+                        <ul class="header-nav-ul--mobile">
+                            <li class="header-nav--items" onclick="pesquisaActionAnimes()">Ação</li>
+                            <li class="header-nav--items" onclick="pesquisaDramaAnimes()">Drama</li>
+                            <li class="header-nav--items" onclick="pesquisaRomanceAnimes()">Romance</li>
+                            <li class="header-nav--items" onclick="pesquisaComedyAnimes()">Comédia</li>
+                        </ul>
+                    </label>
                 </nav>
             </div>
         </div>

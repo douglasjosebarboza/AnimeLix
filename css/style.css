@@ -16,6 +16,7 @@
 }
 
 header{
+    position: fixed;
     background-color: var(--cor-bg--principal);
     width: 100%;
     height: 75px;
@@ -42,6 +43,9 @@ header{
     font-weight: bolder;
     text-shadow: 0 0 7px black;
     transition-duration: 0.25s ;
+}
+.header--namelogo-oculto{
+    display: none;
 }
 
 .header--namelogo:hover{
@@ -89,20 +93,32 @@ header{
     gap: 20px;
 }
 
-.header-nav-button--mobile{
+#header-input--mobile{
     display: none;
+}
+
+.header-nav-div--mobile{
+    display: none;
+}
+
+.header-nav-div-span--mobile{
+
+}
+
+.header-nav-ul--mobile{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 20px;
 }
 
 .header-nav--items{
     width: 70px;
-    height: 100%;
     background-color: var(--cor-lt--01);
     padding: 5px;
-    border: none;
     border-radius: 10px;
     font-family: var(--fonte-title--animes);
     text-align: center;
-    text-decoration: none;
     color: white;
     transition-duration: 0.5s;
 }
@@ -217,6 +233,143 @@ footer{
         color: var(--cor-lt--02);
     }
 }
+
+@media (max-width: 940px){
+
+    #header-input--mobile:checked ~ label .header-nav-div-span--mobile{
+        transform: rotate(45deg);
+    }
+    #header-input--mobile:checked ~ label .header-nav-div-span--mobile::before{
+        transform: rotate(90deg);
+        top: 0;
+    }
+    #header-input--mobile:checked ~ label .header-nav-div-span--mobile::after{
+        transform: rotate(90deg);
+        bottom: 0;
+    }
+
+    #header-input--mobile:checked ~ label .header-nav-ul--mobile{
+        background-color: var(--cor-lt--01);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        padding-top: 20px;
+        position: absolute;
+        right: 0;
+        top: 75px;
+        width: 30vw;
+        height: 100vh;
+    }
+
+    .header-nav-div--mobile{
+        display: flex;
+        width: 45px;
+        height: 45px;
+    }
+
+    .header-nav-div-span--mobile{
+       display: block; 
+       position: relative;
+       background-color: var(--cor-lt--02);
+       width: 30px;
+       height: 2px;
+       top: 21px;
+       left: 7px;
+    }
+    .header-nav-div-span--mobile::after,.header-nav-div-span--mobile::before {
+        background-color: var(--cor-lt--02);
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transition-duration: .25s;
+     }
+     .header-nav-div-span--mobile::before{
+        top:-10px
+     }
+     .header-nav-div-span--mobile::after{
+        bottom: -10px;
+     }
+     .header-nav-ul--mobile{
+        display: none; 
+     }   
+}
+
+@media (max-width: 515px) {
+    .header--namelogo{
+        display: none;
+    }
+    .header--namelogo-oculto{
+        display: flex;
+        color:white;
+        font-family: var(--fonte-title--animes);
+        font-size: 2em;
+        font-weight: bolder;
+        text-shadow: 0 0 7px black;
+        transition-duration: 0.25s ;
+    }
+}
+
+@media (max-width: 440px) {
+    .header--namelogo-oculto{
+        display: flex;
+        color:white;
+        font-family: var(--fonte-title--animes);
+        font-size: 1.75em;
+        font-weight: bolder;
+        text-shadow: 0 0 7px black;
+        transition-duration: 0.25s ;
+    }
+
+    #header-input--mobile:checked ~ label .header-nav-ul--mobile{
+        background-color: var(--cor-lt--01);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        padding-top: 20px;
+        position: absolute;
+        right: 0;
+        top: 75px;
+        width: 40vw;
+        height: 100vh;
+    }
+}
+@media (max-width: 430px) {
+    .header--search{
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 370px) {
+    .header--search{
+        font-size: 0.5rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /* .header-container--namelogo{
         padding: auto;
