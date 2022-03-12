@@ -6,11 +6,9 @@ let idAnime = []
 const idAnimes = (i, type) => {
     if(type === 'anime'){
         idAnime.push(jsonDados.anime[i].mal_id)
-        console.log(idAnime);
     }
     else if(type === 'results'){
         idAnime.push(jsonDados.results[i].mal_id)
-        console.log(idAnime);
     }
 }
 
