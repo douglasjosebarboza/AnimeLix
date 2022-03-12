@@ -101,9 +101,6 @@ header{
     display: none;
 }
 
-.header-nav-div-span--mobile{
-
-}
 
 .header-nav-ul--mobile{
     display: flex;
@@ -139,7 +136,7 @@ main{
     margin: auto;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 100px;
+    padding: 100px auto;
     gap: 20px;
     width: 80%;
     min-height: 800px;
@@ -167,9 +164,6 @@ main{
     border-radius: 20px;
     box-shadow: 0 0 15px 1px  black; 
     transition-duration: 0.5s;
-}
-.anime--poster:hover{
-
 }
 
 .anime--title{
@@ -249,17 +243,7 @@ footer{
     }
 
     #header-input--mobile:checked ~ label .header-nav-ul--mobile{
-        background-color: var(--cor-lt--01);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 50px;
-        padding-top: 20px;
-        position: absolute;
         right: 0;
-        top: 75px;
-        width: 30vw;
-        height: 100vh;
     }
 
     .header-nav-div--mobile{
@@ -293,7 +277,18 @@ footer{
         bottom: -10px;
      }
      .header-nav-ul--mobile{
-        display: none; 
+        background-color: var(--cor-lt--01);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+        padding-top: 20px;
+        position: absolute;
+        right: -30vw;
+        top: 75px;
+        width: 30vw;
+        height: 100vh;
+        transition: ease 0.5s;
      }   
 }
 
