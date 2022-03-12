@@ -172,7 +172,7 @@ const pesquisaComedyAnimes = async () => {
 }
 
 document.getElementById("input").addEventListener('keypress', function(evento){
-    if (evento.code === 'Enter'){
+    if (evento.key === 'Enter'){
         pesquisaInput()
     }  
 })
