@@ -139,7 +139,7 @@ main{
     margin: auto;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 20px;
+    padding: 100px;
     gap: 20px;
     width: 80%;
     min-height: 800px;
