@@ -37,6 +37,7 @@ header{
 }
 
 .header--namelogo{
+    user-select: none;
     color:white;
     font-family: var(--fonte-title--animes);
     font-size: 2em;
