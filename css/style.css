@@ -172,8 +172,8 @@ main{
 }
 
 .container-main-anime--poster{
-    max-width: 200px;
-    max-height: 350px;
+    width: 200px;
+    height: 350px;
 }
 
 .anime--poster{
@@ -186,7 +186,7 @@ main{
 
 .anime--title{
     font-family: var(--fonte-title--animes);
-    font-size: 1.1em;
+    font-size: 1.1rem;
     max-width: 200px;
     text-align: center;
     color: white;
