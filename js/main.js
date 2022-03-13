@@ -16,6 +16,7 @@ const removeIds = () => {
     idAnime.length = 0
 }
 
+
 const showAnimes = (param) => {
     if (param === 'anime'){
         for(i = 0; i < jsonDados.anime.length; i++){
