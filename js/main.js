@@ -2,6 +2,17 @@ let dados
 let jsonDados
 let id
 let idAnime = []
+let loading
+
+const enableLoading = () => {
+    console.log('on');
+    loading = document.querySelector('.container-loader').style.display = "flex"
+}
+
+const disableLoading = () => {
+    console.log('off');
+    loading =document.querySelector('.container-loader').style.display = "none"   
+}
 
 const idAnimes = (i, type) => {
     if(type === 'anime'){
@@ -36,6 +47,7 @@ const showAnimes = (param) => {
                 idAnimes(i, 'anime')
             }
         }
+        disableLoading()
     }
     else if(param === 'results'){
         for(i = 0; i < jsonDados.results.length; i++){
@@ -53,6 +65,7 @@ const showAnimes = (param) => {
             titleAnime.innerHTML = jsonDados.results[i].title
             idAnimes(i, 'results')
         }
+        disableLoading()
     }
     // else if(param === 'episodes'){
     //     for(i = 0; i < jsonDados.episodes.length; i++){
@@ -69,10 +82,12 @@ const showAnimes = (param) => {
     //         imgPoster.src = jsonDados.episodes[i].image_url
     //         titleAnime.innerHTML = jsonDados.episodes[i].title
     //     }
+    //     disableLoading()
     // }
 }
 
 const removeContent = () => {
+    enableLoading()
     let divMain = document.getElementsByClassName("container-main--anime")
     for(i = divMain.length - 1; i >= 0; i--){
         divMain[i].remove()
@@ -89,6 +104,7 @@ const removeContent = () => {
 }
 
 const pesquisaInicialApi = async() => {
+    removeContent()
     dados = await fetch("https://jikan1.p.rapidapi.com/season/2022/winter", {
         "method": "GET",
         "headers": {
@@ -97,30 +113,32 @@ const pesquisaInicialApi = async() => {
         }
     })
     jsonDados = await dados.json()
-    console.log(jsonDados);
-    removeContent()
     showAnimes('anime')
 }
 
 const pesquisaInput = async () => {
     const text = document.getElementById("input").value
+    const url = text
     if(text === ''){
         pesquisaInicialApi()
     }
-    const url = text
-    dados = await fetch(`https://jikan1.p.rapidapi.com/search/anime?q=${url}`, {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "jikan1.p.rapidapi.com",
-            "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
-        }
-    })
-    jsonDados = await dados.json()
-    removeContent()
-    showAnimes('results')
+    else{
+        removeContent()
+        dados = await fetch(`https://jikan1.p.rapidapi.com/search/anime?q=${url}`, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "jikan1.p.rapidapi.com",
+                "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
+            }
+        })
+        jsonDados = await dados.json()
+        console.log(jsonDados);
+        showAnimes('results')
+    }
 }
 
 const pesquisaActionAnimes = async () => {
+    removeContent()  
     dados = await fetch("https://jikan1.p.rapidapi.com/genre/anime/1/1", {
         "method": "GET",
         "headers": {
@@ -128,12 +146,12 @@ const pesquisaActionAnimes = async () => {
             "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
         }
     })
-    jsonDados = await dados.json()
-    removeContent()    
+    jsonDados = await dados.json() 
     showAnimes('anime')
 }
 
 const pesquisaDramaAnimes = async () => {
+    removeContent()
     dados = await fetch("https://jikan1.p.rapidapi.com/genre/anime/1/8", {
         "method": "GET",
         "headers": {
@@ -142,11 +160,11 @@ const pesquisaDramaAnimes = async () => {
         }
     })
     jsonDados = await dados.json()
-    removeContent()    
     showAnimes('anime')
 }
 
 const pesquisaRomanceAnimes = async () => {
+    removeContent()
     dados = await fetch("https://jikan1.p.rapidapi.com/genre/anime/1/22", {
         "method": "GET",
         "headers": {
@@ -155,11 +173,11 @@ const pesquisaRomanceAnimes = async () => {
         }
     })
     jsonDados = await dados.json()
-    removeContent()  
     showAnimes('anime')
 }
 
 const pesquisaComedyAnimes = async () => {
+    removeContent() 
     dados = await fetch("https://jikan1.p.rapidapi.com/genre/anime/1/4", {
         "method": "GET",
         "headers": {
@@ -168,7 +186,6 @@ const pesquisaComedyAnimes = async () => {
         }
     })
     jsonDados = await dados.json()
-    removeContent()   
     showAnimes('anime')
 }
 
