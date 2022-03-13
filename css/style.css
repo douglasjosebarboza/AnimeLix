@@ -151,8 +151,10 @@ main{
     display: flex;
     margin: auto;
     flex-wrap: wrap;
+    padding-top: 100px;
+    padding-left: auto;
+    padding-right: auto;
     justify-content: center;
-    padding: 100px auto;
     gap: 20px;
     width: 80%;
     min-height: 800px;
