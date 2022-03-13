@@ -68,7 +68,7 @@ const showAnimes = (param) => {
     //         imgPoster.src = jsonDados.episodes[i].image_url
     //         titleAnime.innerHTML = jsonDados.episodes[i].title
     //     }
-    //}
+    // }
 }
 
 const removeContent = () => {
@@ -96,13 +96,12 @@ const pesquisaInicialApi = async() => {
         }
     })
     jsonDados = await dados.json()
+    console.log(jsonDados);
     removeContent()
     showAnimes('anime')
 }
 
 const pesquisaInput = async () => {
-    console.log('funciona');
-    removeContent()
     const text = document.getElementById("input").value
     if(text === ''){
         pesquisaInicialApi()
@@ -116,6 +115,7 @@ const pesquisaInput = async () => {
         }
     })
     jsonDados = await dados.json()
+    removeContent()
     showAnimes('results')
 }
 
@@ -188,6 +188,7 @@ pesquisaInicialApi()
 //         }
 //     })
 //     jsonDados = await dados.json()
+//     console.log(jsonDados);
 //     showAnimes('episodes')
 // }
 
