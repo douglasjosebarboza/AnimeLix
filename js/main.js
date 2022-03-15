@@ -5,12 +5,10 @@ let idAnime = []
 let loading
 
 const enableLoading = () => {
-    console.log('on');
     loading = document.querySelector('.container-loader').style.display = "flex"
 }
 
 const disableLoading = () => {
-    console.log('off');
     loading =document.querySelector('.container-loader').style.display = "none"   
 }
 
@@ -27,11 +25,10 @@ const removeIds = () => {
     idAnime.length = 0
 }
 
-
 const showAnimes = (param) => {
     if (param === 'anime'){
         for(i = 0; i < jsonDados.anime.length; i++){
-            if(jsonDados.anime[i].explicit_genres.length === 0){
+            if(`jsonDados.${param}[i].explicit_genres.length === 0`){
                 let divMain = document.querySelector(".container-main")
                 let divAnimeContainer = document.createElement("div")
                 divMain.appendChild(divAnimeContainer)
@@ -137,55 +134,53 @@ const pesquisaInput = async () => {
     }
 }
 
-const pesquisaActionAnimes = async () => {
+const pesquisaGeneroAnimes = async (genero) => {
     removeContent()  
-    dados = await fetch("https://jikan1.p.rapidapi.com/genre/anime/1/1", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "jikan1.p.rapidapi.com",
-            "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
-        }
-    })
-    jsonDados = await dados.json() 
-    showAnimes('anime')
-}
+    switch (genero) {
+        case 'açao':
+            dados = await fetch("https://jikan1.p.rapidapi.com/genre/anime/1/1", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "jikan1.p.rapidapi.com",
+                    "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
+                }
+            })
+            jsonDados = await dados.json() 
+            break
 
-const pesquisaDramaAnimes = async () => {
-    removeContent()
-    dados = await fetch("https://jikan1.p.rapidapi.com/genre/anime/1/8", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "jikan1.p.rapidapi.com",
-            "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
-        }
-    })
-    jsonDados = await dados.json()
-    showAnimes('anime')
-}
+        case 'drama':
+            dados = await fetch("https://jikan1.p.rapidapi.com/genre/anime/1/8", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "jikan1.p.rapidapi.com",
+                    "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
+                }
+            })
+            jsonDados = await dados.json()
+            break
 
-const pesquisaRomanceAnimes = async () => {
-    removeContent()
-    dados = await fetch("https://jikan1.p.rapidapi.com/genre/anime/1/22", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "jikan1.p.rapidapi.com",
-            "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
-        }
-    })
-    jsonDados = await dados.json()
-    showAnimes('anime')
-}
-
-const pesquisaComedyAnimes = async () => {
-    removeContent() 
-    dados = await fetch("https://jikan1.p.rapidapi.com/genre/anime/1/4", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "jikan1.p.rapidapi.com",
-            "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
-        }
-    })
-    jsonDados = await dados.json()
+        case 'romance':
+            dados = await fetch("https://jikan1.p.rapidapi.com/genre/anime/1/22", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "jikan1.p.rapidapi.com",
+                    "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
+                }
+            })
+            jsonDados = await dados.json()
+            break
+        
+        case 'comedia':
+            dados = await fetch("https://jikan1.p.rapidapi.com/genre/anime/1/4", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "jikan1.p.rapidapi.com",
+                    "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
+                }
+            })
+            jsonDados = await dados.json()
+            break
+    }
     showAnimes('anime')
 }
 
