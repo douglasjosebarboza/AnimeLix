@@ -151,7 +151,7 @@ main{
     display: flex;
     margin: auto;
     flex-wrap: wrap;
-    padding-top: 100px;
+    padding-top: 130px;
     padding-left: auto;
     padding-right: auto;
     justify-content: center;
@@ -195,7 +195,6 @@ main{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin: 20px 0;
 }
 
 .anime--poster{
@@ -214,8 +213,8 @@ main{
     font-size: 1.1rem;
     max-width: 200px;
     min-width: 200px;
-    max-height: 100px;
-    min-height: 100px;
+    max-height: 95px;
+    min-height: 95px;
     text-align: center;
     color: white;
 }
