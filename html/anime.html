@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="shortcut icon" href="./img/opera_9tbZl5EiZK.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/anime.css">
     <title>AnimeLix</title>
 </head>
 <body>
     <header>
         <div class="header-container">
             <div class="header-container--namelogo">
-                <p class="header--namelogo" onclick="pesquisaInicialApi()"><span class="header-namelogo--blue">A</span>nime<span class="header-namelogo--pink">L</span>ix</p>
-                <p class="header--namelogo-oculto" onclick="pesquisaInicialApi()"><span class="header-namelogo--blue">A</span><span class="header-namelogo--pink">L</span></p>
+                <a href="../index.html">
+                    <p class="header--namelogo"><span class="header-namelogo--blue">A</span>nime<span class="header-namelogo--pink">L</span>ix</p>
+                </a>
+                <a href="../index.html">
+                    <p class="header--namelogo-oculto"><span class="header-namelogo--blue">A</span><span class="header-namelogo--pink">L</span></p>
+                </a>
             </div>
             <div class="header-container--search">
                 <input class="header--search" id="input" type="search" placeholder="Digite o nome do anime">
@@ -42,22 +45,12 @@
         </div>
     </header>
 
-    <main>
-        <div class="destaque">
-            <div class="container-destaque"></div>
-        </div>
-        <div class="container-loader">
-            <div class="loader"></div>
-        </div>
-        <div class="container-main"></div>
-    </main>
+    <main></main>
 
     <footer>
         <div class="footer-container--text">
             <p class="footer--text"> Feito por <a href="https://github.com/douglasjosebarboza">Douglas José Barboza</a></p>
         </div>
     </footer>
-
-    <script src="./js/main.js"></script>
 </body>
 </html>
