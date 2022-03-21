@@ -28,7 +28,7 @@ const removeIds = () => {
 const showAnimes = (param) => {
     if (param === 'anime'){
         for(i = 0; i < jsonDados.anime.length; i++){
-            if(`jsonDados.${param}[i].explicit_genres.length === 0`){
+            if(jsonDados.anime[i].explicit_genres.length === 0){
                 let divMain = document.querySelector(".container-main")
                 let divAnimeContainer = document.createElement("div")
                 divMain.appendChild(divAnimeContainer)
@@ -64,6 +64,7 @@ const showAnimes = (param) => {
         }
         disableLoading()
     }
+
     // else if(param === 'episodes'){
     //     for(i = 0; i < jsonDados.episodes.length; i++){
     //         let divMain = document.querySelector(".container-main")
@@ -111,6 +112,19 @@ const pesquisaInicialApi = async() => {
     })
     jsonDados = await dados.json()
     showAnimes('anime')
+    console.log(jsonDados);
+}
+
+const destaqueInicial = async() => {
+    dados = await fetch("https://jikan1.p.rapidapi.com/anime/16498/pictures", {
+	    "method": "GET",
+	    "headers": {
+		    "x-rapidapi-host": "jikan1.p.rapidapi.com",
+		    "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
+	    }
+    })
+    jsonDados = await dados.json()
+    console.log(jsonDados);
 }
 
 const pesquisaInput = async () => {
