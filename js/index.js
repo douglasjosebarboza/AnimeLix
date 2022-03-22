@@ -28,40 +28,67 @@ const removeIds = () => {
 const showAnimes = (param) => {
     if (param === 'anime'){
         for(i = 0; i < jsonDados.anime.length; i++){
+
             if(jsonDados.anime[i].explicit_genres.length === 0){
                 let divMain = document.querySelector(".container-main")
                 let divAnimeContainer = document.createElement("div")
-                divMain.appendChild(divAnimeContainer)
-                divAnimeContainer.classList.add("container-main--anime")
+                let linkAnimePage= document.createElement("a")
                 let imgPoster = document.createElement("img")
                 let titleAnime = document.createElement("p")
-                divAnimeContainer.appendChild(imgPoster)
+
+
+                divMain.appendChild(divAnimeContainer)
+                divAnimeContainer.classList.add("container-main--anime")
+
+                divAnimeContainer.appendChild(linkAnimePage)
+                linkAnimePage.href = "../html/anime.html"
+
+                linkAnimePage.appendChild(imgPoster)
                 imgPoster.classList.add("anime--poster")
-                divAnimeContainer.appendChild(titleAnime)
+
+                linkAnimePage.appendChild(titleAnime)
                 titleAnime.classList.add("anime--title")
+
+
                 imgPoster.src = jsonDados.anime[i].image_url
                 titleAnime.innerHTML = jsonDados.anime[i].title
+
+
                 idAnimes(i, 'anime')
             }
+
         }
+
         disableLoading()
     }
+
     else if(param === 'results'){
+
         for(i = 0; i < jsonDados.results.length; i++){
+
             let divMain = document.querySelector(".container-main")
             let divAnimeContainer = document.createElement("div")
-            divMain.appendChild(divAnimeContainer)
-            divAnimeContainer.classList.add("container-main--anime")
             let imgPoster = document.createElement("img")
             let titleAnime = document.createElement("p")
+
+
+            divMain.appendChild(divAnimeContainer)
+            divAnimeContainer.classList.add("container-main--anime")
+
             divAnimeContainer.appendChild(imgPoster)
             imgPoster.classList.add("anime--poster")
+
             divAnimeContainer.appendChild(titleAnime)
             titleAnime.classList.add("anime--title")
+
+
             imgPoster.src = jsonDados.results[i].image_url
             titleAnime.innerHTML = jsonDados.results[i].title
+
+            
             idAnimes(i, 'results')
         }
+
         disableLoading()
     }
 

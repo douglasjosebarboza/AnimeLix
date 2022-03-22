@@ -65,84 +65,57 @@ header a {
     color: var(--cor-lt--01);
 }
 
-.header-container--search{
-    width: 50%;
-    margin: 0 10px;
-}
-
-.header--search{
-    font-family: var(--fonte-title--animes);
+main{
     width: 100%;
-    min-height: 40px;
-    border: none;
-    border-radius: 20px;
-    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.356);
-    padding: 0 7px;
-    transition-duration: 0.25s;
-}
-.header--search:hover{
-    transform: scale(1.02);
-}
-.header--search:focus{
-    outline: 0;
+    height: 100%;
+    background-image: linear-gradient(to bottom, purple, rgb(56, 3, 56) 70%);
+    background-attachment: fixed;
+    box-shadow: inset 0px 7px 15px rgba(0, 0, 0, 0.5);
 }
 
-.header-container--nav{
-    margin: 0 10px;
-}
-
-.header--nav{
+.container-main{
     display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-    gap: 20px;
-}
-
-#header-input--mobile{
-    display: none;
-}
-
-.header-nav-div--mobile{
-    display: none;
-}
-
-.header-nav--ul{
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    gap: 20px;
-}
-
-.header-nav-ul--mobile{
-    list-style: none;
-    background-color: var(--cor-lt--01);
-    display: flex;
-    flex-direction: column;
+    margin: auto;
+    flex-wrap: wrap;
+    padding-top: 130px;
+    padding-left: auto;
+    padding-right: auto;
+    justify-content: center;
     align-items: center;
-    gap: 50px;
-    padding-top: 20px;
-    position: absolute;
-    right: -50vw;
-    top: 75px;
-    width: 30vw;
-    height: 100vh;
-    transition: 0.5s;
-}   
-
-.header-nav--items{
-    width: 70px;
-    background-color: var(--cor-lt--01);
-    padding: 5px;
-    border-radius: 10px;
-    font-family: var(--fonte-title--animes);
-    text-align: center;
-    color: white;
-    transition-duration: 0.5s;
-}
-.header-nav--items:hover{
-    transform: scale(1);
+    gap: 20px;
+    width: 80%;
+    min-height: 800px;
 }
 
+.container-loader{
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    padding-top: 100px;
+    padding-left: auto;
+    padding-right: auto;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 80%;
+    min-height: 800px;
+}
+
+.loader{
+    border: 16px solid var(--cor-bg--principal); 
+    border-top: 16px solid var(--cor-lt--02); 
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    display: flex;
+    position: fixed;
+}
+  
+@keyframes spin{
+    0%{ transform: rotate(0deg); }
+    100%{ transform: rotate(360deg); }
+}
 
 footer{
     height: 5vh;

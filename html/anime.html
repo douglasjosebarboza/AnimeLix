@@ -18,39 +18,22 @@
                     <p class="header--namelogo-oculto"><span class="header-namelogo--blue">A</span><span class="header-namelogo--pink">L</span></p>
                 </a>
             </div>
-            <div class="header-container--search">
-                <input class="header--search" id="input" type="search" placeholder="Digite o nome do anime">
-            </div>
-            <div class="header-container--nav">
-                <nav class="header--nav">
-                    <input type="checkbox" id="header-input--mobile">
-                    <label for="header-input--mobile">
-                        <div class="header-nav-div--mobile"><span class="header-nav-div-span--mobile"></span>
-                        </div>
-                        <ul class="header-nav--ul">
-                            <li class="header-nav--items" onclick="pesquisaGeneroAnimes('açao')">Ação</li>
-                            <li class="header-nav--items" onclick="pesquisaGeneroAnimes('drama')">Drama</li>
-                            <li class="header-nav--items" onclick="pesquisaGeneroAnimes('romance')">Romance</li>
-                            <li class="header-nav--items" onclick="pesquisaGeneroAnimes('comedia')">Comédia</li>
-                        </ul>
-                        <ul class="header-nav-ul--mobile">
-                            <li class="header-nav--items" onclick="pesquisaGeneroAnimes('açao')">Ação</li>
-                            <li class="header-nav--items" onclick="pesquisaGeneroAnimes('drama')">Drama</li>
-                            <li class="header-nav--items" onclick="pesquisaGeneroAnimes('romance')">Romance</li>
-                            <li class="header-nav--items" onclick="pesquisaGeneroAnimes('comedia')">Comédia</li>
-                        </ul>
-                    </label>
-                </nav>
-            </div>
         </div>
     </header>
 
-    <main></main>
+    <main>
+        <div class="container-loader">
+            <div class="loader"></div>
+        </div>
+        <div class="container-main"></div>
+    </main>
 
     <footer>
         <div class="footer-container--text">
             <p class="footer--text"> Feito por <a href="https://github.com/douglasjosebarboza">Douglas José Barboza</a></p>
         </div>
     </footer>
+
+    <script src="../js/anime.js"></script>
 </body>
 </html>
