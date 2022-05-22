@@ -147,6 +147,10 @@ main{
     box-shadow: inset 0px 7px 15px rgba(0, 0, 0, 0.5);
 }
 
+main a {
+    text-decoration: none;
+}
+
 .container-main{
     display: flex;
     margin: auto;
@@ -156,7 +160,7 @@ main{
     padding-right: auto;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 30px;
     width: 80%;
     min-height: 800px;
 }

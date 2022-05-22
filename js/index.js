@@ -30,33 +30,34 @@ const showAnimes = (param) => {
         for(i = 0; i < jsonDados.anime.length; i++){
 
             if(jsonDados.anime[i].explicit_genres.length === 0){
-                let divMain = document.querySelector(".container-main")
-                let divAnimeContainer = document.createElement("div")
-                let linkAnimePage= document.createElement("a")
-                let imgPoster = document.createElement("img")
-                let titleAnime = document.createElement("p")
-
-
-                divMain.appendChild(divAnimeContainer)
-                divAnimeContainer.classList.add("container-main--anime")
-
-                divAnimeContainer.appendChild(linkAnimePage)
-                linkAnimePage.href = "../html/anime.html"
-
-                linkAnimePage.appendChild(imgPoster)
-                imgPoster.classList.add("anime--poster")
-
-                linkAnimePage.appendChild(titleAnime)
-                titleAnime.classList.add("anime--title")
-
-
-                imgPoster.src = jsonDados.anime[i].image_url
-                titleAnime.innerHTML = jsonDados.anime[i].title
-
-
-                idAnimes(i, 'anime')
+                if(jsonDados.anime[i].rated != "Rx"){
+                    let divMain = document.querySelector(".container-main")
+                    let divAnimeContainer = document.createElement("div")
+                    let linkAnimePage= document.createElement("a")
+                    let imgPoster = document.createElement("img")
+                    let titleAnime = document.createElement("p")
+    
+    
+                    divMain.appendChild(divAnimeContainer)
+                    divAnimeContainer.classList.add("container-main--anime")
+    
+                    divAnimeContainer.appendChild(linkAnimePage)
+                    linkAnimePage.href = "../html/anime.html"
+    
+                    linkAnimePage.appendChild(imgPoster)
+                    imgPoster.classList.add("anime--poster")
+    
+                    linkAnimePage.appendChild(titleAnime)
+                    titleAnime.classList.add("anime--title")
+    
+    
+                    imgPoster.src = jsonDados.anime[i].image_url
+                    titleAnime.innerHTML = jsonDados.anime[i].title
+    
+    
+                    idAnimes(i, 'anime')
+                }
             }
-
         }
 
         disableLoading()
@@ -65,28 +66,29 @@ const showAnimes = (param) => {
     else if(param === 'results'){
 
         for(i = 0; i < jsonDados.results.length; i++){
-
-            let divMain = document.querySelector(".container-main")
-            let divAnimeContainer = document.createElement("div")
-            let imgPoster = document.createElement("img")
-            let titleAnime = document.createElement("p")
-
-
-            divMain.appendChild(divAnimeContainer)
-            divAnimeContainer.classList.add("container-main--anime")
-
-            divAnimeContainer.appendChild(imgPoster)
-            imgPoster.classList.add("anime--poster")
-
-            divAnimeContainer.appendChild(titleAnime)
-            titleAnime.classList.add("anime--title")
+            if(jsonDados.results[i].rated != "Rx"){
+                let divMain = document.querySelector(".container-main")
+                let divAnimeContainer = document.createElement("div")
+                let imgPoster = document.createElement("img")
+                let titleAnime = document.createElement("p")
 
 
-            imgPoster.src = jsonDados.results[i].image_url
-            titleAnime.innerHTML = jsonDados.results[i].title
+                divMain.appendChild(divAnimeContainer)
+                divAnimeContainer.classList.add("container-main--anime")
 
-            
-            idAnimes(i, 'results')
+                divAnimeContainer.appendChild(imgPoster)
+                imgPoster.classList.add("anime--poster")
+
+                divAnimeContainer.appendChild(titleAnime)
+                titleAnime.classList.add("anime--title")
+
+
+                imgPoster.src = jsonDados.results[i].image_url
+                titleAnime.innerHTML = jsonDados.results[i].title
+
+                
+                idAnimes(i, 'results')
+            }
         }
 
         disableLoading()
