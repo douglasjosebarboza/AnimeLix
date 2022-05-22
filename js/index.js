@@ -132,7 +132,22 @@ const removeContent = () => {
 
 const pesquisaInicialApi = async() => {
     removeContent()
-    dados = await fetch("https://jikan1.p.rapidapi.com/season/2022/winter", {
+    const data = new Date()
+    const month = data.getMonth()
+    const year = String(data.getFullYear())
+    if (month >=0 && month <= 2) {
+        var string_month = 'winter'
+    }
+    else if (month >=3 && month <= 5){
+        string_month = 'spring'
+    }
+    else if (month >=6 && month <= 8){
+        string_month = 'summer'
+    }
+    else if (month >=9 && month <= 12){
+        string_month = 'fall'
+    }
+    dados = await fetch(`https://jikan1.p.rapidapi.com/season/${year}/${string_month}`, {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "jikan1.p.rapidapi.com",
@@ -141,7 +156,6 @@ const pesquisaInicialApi = async() => {
     })
     jsonDados = await dados.json()
     showAnimes('anime')
-    console.log(jsonDados);
 }
 
 const destaqueInicial = async() => {
@@ -153,7 +167,6 @@ const destaqueInicial = async() => {
 	    }
     })
     jsonDados = await dados.json()
-    console.log(jsonDados);
 }
 
 const pesquisaInput = async () => {
@@ -172,7 +185,6 @@ const pesquisaInput = async () => {
             }
         })
         jsonDados = await dados.json()
-        console.log(jsonDados);
         showAnimes('results')
     }
 }
