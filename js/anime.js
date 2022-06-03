@@ -1,5 +1,6 @@
 let dados
 let jsonDados
+let id
 let idAnime = []
 let loading
 
@@ -24,4 +25,37 @@ const animeInfoApi = async () => {
 	    }
     })
     jsonDados = await dados.json()
+    console.log(jsonDados)
+
+    for(i = 0; i < jsonDados.results.length; i++){
+        if(jsonDados.results[i].rated != "Rx"){
+            let divMain = document.querySelector(".container-main")
+            let divAnimeContainer = document.createElement("div")
+            let imgPoster = document.createElement("img")
+            let titleAnime = document.createElement("p")
+    
+    
+            divMain.appendChild(divAnimeContainer)
+            divAnimeContainer.classList.add("container-main--anime")
+    
+            divAnimeContainer.appendChild(imgPoster)
+            imgPoster.classList.add("anime--poster")
+    
+            divAnimeContainer.appendChild(titleAnime)
+            titleAnime.classList.add("anime--title")
+    
+    
+            imgPoster.src = jsonDados.results[i].image_url
+            titleAnime.innerHTML = jsonDados.results[i].title
+    
+            
+            idAnimes(i, 'results')
+        }
+    }
 }
+
+
+
+disableLoading()
+
+animeInfoApi()
