@@ -1,0 +1,23 @@
+{
+  "name": "animelix",
+  "version": "1.0.0",
+  "description": "Site criado para por em prática o HTML, CSS e JavaScript, onde estou usando uma API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/douglasjosebarboza/AnimeLix.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/douglasjosebarboza/AnimeLix/issues"
+  },
+  "homepage": "https://github.com/douglasjosebarboza/AnimeLix#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  }
+}
