@@ -1,8 +1,6 @@
 // Variaveis Globais
     let dados
     let jsonDados
-    let id
-    let idAnime = []
     let loading
 
 // Função de ativar o Loading
