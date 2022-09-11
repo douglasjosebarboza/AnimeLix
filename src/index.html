@@ -12,8 +12,8 @@
     <header>
         <div class="header-container">
             <div class="header-container--namelogo">
-                <p class="header--namelogo" onclick="pesquisaInicialApi()"><span class="header-namelogo--blue">A</span>nime<span class="header-namelogo--pink">L</span>ix</p>
-                <p class="header--namelogo-oculto" onclick="pesquisaInicialApi()"><span class="header-namelogo--blue">A</span><span class="header-namelogo--pink">L</span></p>
+                <p id="click-home" class="header--namelogo"><span class="header-namelogo--blue">A</span>nime<span class="header-namelogo--pink">L</span>ix</p>
+                <p id="click-home" class="header--namelogo-oculto"><span class="header-namelogo--blue">A</span><span class="header-namelogo--pink">L</span></p>
             </div>
             <div class="header-container--search">
                 <input class="header--search" id="input" type="search" placeholder="Digite o nome do anime">
@@ -25,16 +25,16 @@
                         <div class="header-nav-div--mobile"><span class="header-nav-div-span--mobile"></span>
                         </div>
                         <ul class="header-nav--ul">
-                            <li class="header-nav--items" onclick="pesquisaGeneroAnimes('açao')">Ação</li>
-                            <li class="header-nav--items" onclick="pesquisaGeneroAnimes('drama')">Drama</li>
-                            <li class="header-nav--items" onclick="pesquisaGeneroAnimes('romance')">Romance</li>
-                            <li class="header-nav--items" onclick="pesquisaGeneroAnimes('comedia')">Comédia</li>
+                            <li id="click-acao" class="header-nav--items" onclick="pesquisaGeneroAnimes('açao')">Ação</li>
+                            <li id="click-drama" class="header-nav--items" onclick="pesquisaGeneroAnimes('drama')">Drama</li>
+                            <li id="click-romance" class="header-nav--items" onclick="pesquisaGeneroAnimes('romance')">Romance</li>
+                            <li id="click-comedia" class="header-nav--items" onclick="pesquisaGeneroAnimes('comedia')">Comédia</li>
                         </ul>
                         <ul class="header-nav-ul--mobile">
-                            <li class="header-nav--items" onclick="pesquisaGeneroAnimes('açao')">Ação</li>
-                            <li class="header-nav--items" onclick="pesquisaGeneroAnimes('drama')">Drama</li>
-                            <li class="header-nav--items" onclick="pesquisaGeneroAnimes('romance')">Romance</li>
-                            <li class="header-nav--items" onclick="pesquisaGeneroAnimes('comedia')">Comédia</li>
+                            <li id="click-acao" class="header-nav--items" onclick="pesquisaGeneroAnimes('açao')">Ação</li>
+                            <li id="click-drama" class="header-nav--items" onclick="pesquisaGeneroAnimes('drama')">Drama</li>
+                            <li id="click-romance" class="header-nav--items" onclick="pesquisaGeneroAnimes('romance')">Romance</li>
+                            <li id="click-comedia" class="header-nav--items" onclick="pesquisaGeneroAnimes('comedia')">Comédia</li>
                         </ul>
                     </label>
                 </nav>
@@ -55,6 +55,6 @@
         </div>
     </footer>
 
-    <script src="./js/index.js"></script>
+    <script src="./js/index.js" type="module"></script>
 </body>
 </html>

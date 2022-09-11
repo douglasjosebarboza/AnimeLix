@@ -1,18 +1,17 @@
+import urlApi from './api.js'
+
 let dados
 let jsonDados
 let loading
 const urlParams = new URLSearchParams(window.location.search)
 const animeParam = urlParams.get('anime')
-const urlApi = "https://api.jikan.moe/v4/"
-
-console.log(animeParam)
 
 const enableLoading = () => {
     loading = document.querySelector('.container-loader').style.display = "flex"
 }
 
 const disableLoading = () => {
-    loading =document.querySelector('.container-loader').style.display = "none"   
+    loading = document.querySelector('.container-loader').style.display = "none"   
 }
 
 

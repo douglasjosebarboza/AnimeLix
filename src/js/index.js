@@ -1,3 +1,5 @@
+import urlApi from './api.js'
+
 // Variaveis Globais
     let dados
     let jsonDados
@@ -15,12 +17,10 @@
 
 // Função para preencher a pagina
     const showAnimes = (param) => {
-        console.log(jsonDados)
         if (param === 'anime'){
-            for(i = 0; i < jsonDados.anime.length; i++){
-
-                if(jsonDados.anime[i].explicit_genres.length === 0){
-                    if(jsonDados.anime[i].rated != "Rx"){
+            for(let i = 0; i < jsonDados.data.length; i++){
+                if(jsonDados.data[i].explicit_genres.length === 0){
+                    if(jsonDados.data[i].rated != "Rx"){
                         let divMain = document.querySelector(".container-main")
                         let divAnimeContainer = document.createElement("div")
                         let linkAnimePage= document.createElement("a")
@@ -30,10 +30,10 @@
         
                         divMain.appendChild(divAnimeContainer)
                         divAnimeContainer.classList.add("container-main--anime")
-                        divAnimeContainer.setAttribute('id', jsonDados.anime[i].mal_id);
+                        divAnimeContainer.setAttribute('id', jsonDados.data[i].mal_id);
         
                         divAnimeContainer.appendChild(linkAnimePage)
-                        linkAnimePage.href = "../html/anime.html?anime=" + jsonDados.anime[i].mal_id
+                        linkAnimePage.href = "../html/anime.html?anime=" + jsonDados.data[i].mal_id
         
                         linkAnimePage.appendChild(imgPoster)
                         imgPoster.classList.add("anime--poster")
@@ -42,8 +42,8 @@
                         titleAnime.classList.add("anime--title")
         
         
-                        imgPoster.src = jsonDados.anime[i].image_url
-                        titleAnime.innerHTML = jsonDados.anime[i].title
+                        imgPoster.src = jsonDados.data[i].images.jpg.image_url
+                        titleAnime.innerHTML = jsonDados.data[i].title
         
                     }
                 }
@@ -53,9 +53,8 @@
         }
 
         else if(param === 'results'){
-
-            for(i = 0; i < jsonDados.results.length; i++){
-                if(jsonDados.results[i].rated != "Rx"){
+            for(let i = 0; i < jsonDados.data.length; i++){
+                if(jsonDados.data[i].rated != "Rx"){
                     let divMain = document.querySelector(".container-main")
                     let divAnimeContainer = document.createElement("div")
                     let linkAnimePage= document.createElement("a")
@@ -65,10 +64,10 @@
 
                     divMain.appendChild(divAnimeContainer)
                     divAnimeContainer.classList.add("container-main--anime")
-                    divAnimeContainer.setAttribute('id', jsonDados.anime[i].mal_id);
+                    divAnimeContainer.setAttribute('id', jsonDados.data[i].mal_id);
 
                     divAnimeContainer.appendChild(linkAnimePage)
-                    linkAnimePage.href = "../html/anime.html?anime=" + jsonDados.anime[i].mal_id
+                    linkAnimePage.href = "../html/anime.html?anime=" + jsonDados.data[i].mal_id
 
                     divAnimeContainer.appendChild(imgPoster)
                     imgPoster.classList.add("anime--poster")
@@ -77,11 +76,8 @@
                     titleAnime.classList.add("anime--title")
 
 
-                    imgPoster.src = jsonDados.results[i].image_url
-                    titleAnime.innerHTML = jsonDados.results[i].title
-
-                    
-                    idAnimes(i, 'results')
+                    imgPoster.src = jsonDados.data[i].images.jpg.image_url
+                    titleAnime.innerHTML = jsonDados.data[i].title
                 }
             }
 
@@ -89,7 +85,7 @@
         }
 
         else if(param === 'episodes'){
-            for(i = 0; i < jsonDados.episodes.length; i++){
+            for(let i = 0; i < jsonDados.episodes.length; i++){
                 let divMain = document.querySelector(".container-main")
                 let divAnimeContainer = document.createElement("div")
 
@@ -121,15 +117,15 @@
     const removeContent = () => {
         enableLoading()
         let divMain = document.getElementsByClassName("container-main--anime")
-        for(i = divMain.length - 1; i >= 0; i--){
+        for(let i = divMain.length - 1; i >= 0; i--){
             divMain[i].remove()
         }
         let imgPoster = document.getElementsByClassName("anime--poster")
-        for(i = imgPoster.length - 1; i >= 0; i--){
+        for(let i = imgPoster.length - 1; i >= 0; i--){
             imgPoster[i].remove()
         }
         let titleAnime = document.getElementsByClassName("anime--title")
-        for(i = titleAnime.length - 1; i >= 0; i--){
+        for(let i = titleAnime.length - 1; i >= 0; i--){
             titleAnime[i].remove()
         }
     }
@@ -137,28 +133,7 @@
 // Função para pegar dados da API de acordo com a temporada atual
     const pesquisaInicialApi = async() => {
         removeContent()
-        const data = new Date()
-        const month = data.getMonth()
-        const year = String(data.getFullYear())
-        if (month >=0 && month <= 2) {
-            var string_month = 'winter'
-        }
-        else if (month >=3 && month <= 5){
-            string_month = 'spring'
-        }
-        else if (month >=6 && month <= 8){
-            string_month = 'summer'
-        }
-        else if (month >=9 && month <= 12){
-            string_month = 'fall'
-        }
-        dados = await fetch(`https://jikan1.p.rapidapi.com/season/${year}/${string_month}`, {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "jikan1.p.rapidapi.com",
-                "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
-            }
-        })
+        dados = await fetch(`${urlApi}seasons/now`)
         jsonDados = await dados.json()
         showAnimes('anime')
     }
@@ -172,30 +147,19 @@
         }
         else{
             removeContent()
-            dados = await fetch(`https://jikan1.p.rapidapi.com/search/anime?q=${url}`, {
-                "method": "GET",
-                "headers": {
-                    "x-rapidapi-host": "jikan1.p.rapidapi.com",
-                    "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
-                }
-            })
+            dados = await fetch(`${urlApi}anime?q=${url}`)
             jsonDados = await dados.json()
             showAnimes('results')
         }
     }
 
 // Função para pesquisar pelo genero
-    const pesquisaGeneroAnimes = async (genero) => {
-        removeContent()  
+    const pesquisaGeneroAnimes = async () => {
+        removeContent()
+        /*
         switch (genero) {
-            case 'açao':
-                dados = await fetch("https://jikan1.p.rapidapi.com/genre/anime/1/1", {
-                    "method": "GET",
-                    "headers": {
-                        "x-rapidapi-host": "jikan1.p.rapidapi.com",
-                        "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
-                    }
-                })
+            case 'acao':
+                dados = await fetch(`${urlApi}genres/anime`)
                 jsonDados = await dados.json() 
                 break
 
@@ -232,8 +196,19 @@
                 jsonDados = await dados.json()
                 break
         }
+        */
+        dados = await fetch(`${urlApi}genres/anime`)
+        jsonDados = await dados.json()
+        console.log(jsonDados)   
         showAnimes('anime')
     }
+
+    document.getElementById("click-home").addEventListener("click", function(){
+        pesquisaInicialApi()
+    }, false)
+    document.getElementById("click-acao").addEventListener("click", function(){
+        pesquisaGeneroAnimes()
+    }, false)
 
 // Verifica quando o usuario tecla "Enter" para pesquisar
     document.getElementById("input").addEventListener('keypress', function(evento){
