@@ -5,6 +5,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 :root{
@@ -126,7 +127,7 @@ header{
 }   
 
 .header-nav--items{
-    width: 70px;
+    width: 80px;
     background-color: var(--cor-lt--01);
     padding: 5px;
     border-radius: 10px;

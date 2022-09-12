@@ -1,7 +1,5 @@
 import urlApi from './api.js'
 
-let dados
-let jsonDados
 let loading
 const urlParams = new URLSearchParams(window.location.search)
 const animeParam = urlParams.get('anime')
@@ -16,29 +14,25 @@ const disableLoading = () => {
 
 
 const animeInfoApi = async () => {
-    dados = await fetch(urlApi+"anime/"+animeParam+"/full",{
-    })
-    jsonDados = await dados.json()
-    console.log(jsonDados)
-
-    let divMain = document.querySelector(".container-main")
-    let divAnimeContainer = document.createElement("div")
-    let imgPoster = document.createElement("img")
-    let titleAnime = document.createElement("p")
+    let dados = await fetch(urlApi+"anime/"+animeParam+"/full")
+    let jsonDados = await dados.json()
+    preencherTela(jsonDados)
+}
 
 
-    divMain.appendChild(divAnimeContainer)
-    divAnimeContainer.classList.add("container-main--anime")
+const preencherTela = (dados) => {
+    let titleAnime = document.querySelector(".anime--title--spot")
+    let posterAnime = document.querySelector(".anime-poster")
+    let synopsisAnime = document.querySelector(".anime-synopsis")
+    console.log(dados)
 
-    divAnimeContainer.appendChild(imgPoster)
-    imgPoster.classList.add("anime--poster")
+    titleAnime.innerHTML = dados.data.titles[0].title
+    posterAnime.src = dados.data.images.jpg.image_url
+    synopsisAnime.innerHTML = dados.data.synopsis
 
-    divAnimeContainer.appendChild(titleAnime)
-    titleAnime.classList.add("anime--title")
-
-
-    imgPoster.src = jsonDados.data.images.jpg.image_url
-    titleAnime.innerHTML = jsonDados.data.titles[0].title
+    let animeTrailer = document.querySelector(".anime-trailer")
+    animeTrailer.src = dados.data.trailer.embed_url
+    
 }
 
 disableLoading()

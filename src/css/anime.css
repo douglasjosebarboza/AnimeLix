@@ -5,6 +5,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 :root{
@@ -75,16 +76,50 @@ main{
 
 .container-main{
     display: flex;
-    margin: auto;
-    flex-wrap: wrap;
+    margin: 0 auto;
     padding-top: 130px;
-    padding-left: auto;
-    padding-right: auto;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     gap: 20px;
-    width: 80%;
-    min-height: 800px;
+    width: 50%;
+    height:100vh;
+}
+.container-main--anime{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.anime--title--spot{
+    justify-content: center;
+    user-select: none;
+    color:white;
+    font-family: var(--fonte-title--animes);
+    font-size: 1.65em;
+    font-weight: bolder;
+    text-shadow: 0 0 7px black;
+}
+
+.anime-poster{
+    border-radius: 10px;
+}
+
+.container-anime--infos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.container-anime--synopsis{
+    display: flex;
+    align-items: center;
+}
+
+.anime-synopsis{
+    color:white;
+    font-family: var(--fonte-title--animes);
+    font-size: 1em;
 }
 
 .container-loader{

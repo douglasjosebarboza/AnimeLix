@@ -19,33 +19,30 @@ import urlApi from './api.js'
     const showAnimes = (param) => {
         if (param === 'anime'){
             for(let i = 0; i < jsonDados.data.length; i++){
-                if(jsonDados.data[i].explicit_genres.length === 0){
-                    if(jsonDados.data[i].rated != "Rx"){
-                        let divMain = document.querySelector(".container-main")
-                        let divAnimeContainer = document.createElement("div")
-                        let linkAnimePage= document.createElement("a")
-                        let imgPoster = document.createElement("img")
-                        let titleAnime = document.createElement("p")
-        
-        
-                        divMain.appendChild(divAnimeContainer)
-                        divAnimeContainer.classList.add("container-main--anime")
-                        divAnimeContainer.setAttribute('id', jsonDados.data[i].mal_id);
-        
-                        divAnimeContainer.appendChild(linkAnimePage)
-                        linkAnimePage.href = "../html/anime.html?anime=" + jsonDados.data[i].mal_id
-        
-                        linkAnimePage.appendChild(imgPoster)
-                        imgPoster.classList.add("anime--poster")
-        
-                        linkAnimePage.appendChild(titleAnime)
-                        titleAnime.classList.add("anime--title")
-        
-        
-                        imgPoster.src = jsonDados.data[i].images.jpg.image_url
-                        titleAnime.innerHTML = jsonDados.data[i].title
-        
-                    }
+                if(jsonDados.data[i].rating != "Rx - Hentai"){
+                    let divMain = document.querySelector(".container-main")
+                    let divAnimeContainer = document.createElement("div")
+                    let linkAnimePage= document.createElement("a")
+                    let imgPoster = document.createElement("img")
+                    let titleAnime = document.createElement("p")
+    
+    
+                    divMain.appendChild(divAnimeContainer)
+                    divAnimeContainer.classList.add("container-main--anime")
+                    divAnimeContainer.setAttribute('id', jsonDados.data[i].mal_id);
+    
+                    divAnimeContainer.appendChild(linkAnimePage)
+                    linkAnimePage.href = "../html/anime.html?anime=" + jsonDados.data[i].mal_id
+    
+                    linkAnimePage.appendChild(imgPoster)
+                    imgPoster.classList.add("anime--poster")
+    
+                    linkAnimePage.appendChild(titleAnime)
+                    titleAnime.classList.add("anime--title")
+    
+    
+                    imgPoster.src = jsonDados.data[i].images.jpg.image_url
+                    titleAnime.innerHTML = jsonDados.data[i].title
                 }
             }
 
@@ -54,7 +51,7 @@ import urlApi from './api.js'
 
         else if(param === 'results'){
             for(let i = 0; i < jsonDados.data.length; i++){
-                if(jsonDados.data[i].rated != "Rx"){
+                if(jsonDados.data[i].rating != "Rx - Hentai"){
                     let divMain = document.querySelector(".container-main")
                     let divAnimeContainer = document.createElement("div")
                     let linkAnimePage= document.createElement("a")
@@ -80,7 +77,7 @@ import urlApi from './api.js'
                     titleAnime.innerHTML = jsonDados.data[i].title
                 }
             }
-
+            
             disableLoading()
         }
 
@@ -154,61 +151,59 @@ import urlApi from './api.js'
     }
 
 // Função para pesquisar pelo genero
-    const pesquisaGeneroAnimes = async () => {
+    async function pesquisaGeneroAnimes(genero) {
         removeContent()
-        /*
         switch (genero) {
-            case 'acao':
-                dados = await fetch(`${urlApi}genres/anime`)
+            case "acao":
+                dados = await fetch(`${urlApi}anime?genres=1`)
+                jsonDados = await dados.json()   
+                showAnimes('anime')
+                break;
+
+            case "drama":
+                dados = await fetch(`${urlApi}anime?genres=6`)
+                jsonDados = await dados.json()  
+                showAnimes('anime')
+                break;
+
+            case "romance":
+                dados = await fetch(`${urlApi}anime?genres=12`)
                 jsonDados = await dados.json() 
-                break
+                console.log(jsonDados) 
+                showAnimes('anime')
+                break;
 
-            case 'drama':
-                dados = await fetch("https://jikan1.p.rapidapi.com/genre/anime/1/8", {
-                    "method": "GET",
-                    "headers": {
-                        "x-rapidapi-host": "jikan1.p.rapidapi.com",
-                        "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
-                    }
-                })
-                jsonDados = await dados.json()
-                break
-
-            case 'romance':
-                dados = await fetch("https://jikan1.p.rapidapi.com/genre/anime/1/22", {
-                    "method": "GET",
-                    "headers": {
-                        "x-rapidapi-host": "jikan1.p.rapidapi.com",
-                        "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
-                    }
-                })
-                jsonDados = await dados.json()
-                break
-            
-            case 'comedia':
-                dados = await fetch("https://jikan1.p.rapidapi.com/genre/anime/1/4", {
-                    "method": "GET",
-                    "headers": {
-                        "x-rapidapi-host": "jikan1.p.rapidapi.com",
-                        "x-rapidapi-key": "92c4ba8727mshee291ea0e5bca6dp13e5bdjsnb54d27d9bf00"
-                    }
-                })
-                jsonDados = await dados.json()
-                break
+            case "comedia":
+                dados = await fetch(`${urlApi}anime?genres=4`)
+                jsonDados = await dados.json() 
+                showAnimes('anime')
+                break;
         }
-        */
-        dados = await fetch(`${urlApi}genres/anime`)
-        jsonDados = await dados.json()
-        console.log(jsonDados)   
-        showAnimes('anime')
     }
 
     document.getElementById("click-home").addEventListener("click", function(){
         pesquisaInicialApi()
-    }, false)
-    document.getElementById("click-acao").addEventListener("click", function(){
-        pesquisaGeneroAnimes()
-    }, false)
+    }, true)
+
+    document.getElementById("click-acao").addEventListener("click", function (){
+        pesquisaGeneroAnimes('acao')}, true)
+    document.getElementById("click-acao-mobile").addEventListener("click", function (){
+        pesquisaGeneroAnimes('acao')}, true)
+
+    document.getElementById("click-drama").addEventListener("click", function (){
+        pesquisaGeneroAnimes('drama')}, true)
+    document.getElementById("click-drama-mobile").addEventListener("click", function (){
+        pesquisaGeneroAnimes('drama')}, true)
+
+    document.getElementById("click-romance").addEventListener("click", function (){
+        pesquisaGeneroAnimes('romance')}, true)
+    document.getElementById("click-romance-mobile").addEventListener("click", function (){
+        pesquisaGeneroAnimes('romance')}, true)
+        
+    document.getElementById("click-comedia").addEventListener("click", function (){
+        pesquisaGeneroAnimes('comedia')}, true)
+    document.getElementById("click-comedia-mobile").addEventListener("click", function (){
+        pesquisaGeneroAnimes('comedia')}, true)
 
 // Verifica quando o usuario tecla "Enter" para pesquisar
     document.getElementById("input").addEventListener('keypress', function(evento){
