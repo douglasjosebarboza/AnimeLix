@@ -12,7 +12,7 @@ import urlApi from './api.js'
 
 // Função de desativar o Loading
     const disableLoading = () => {
-        loading =document.querySelector('.container-loader').style.display = "none"   
+        loading = document.querySelector('.container-loader').style.display = "none"   
     }
 
 // Função para preencher a pagina
@@ -66,10 +66,10 @@ import urlApi from './api.js'
                     divAnimeContainer.appendChild(linkAnimePage)
                     linkAnimePage.href = "../html/anime.html?anime=" + jsonDados.data[i].mal_id
 
-                    divAnimeContainer.appendChild(imgPoster)
+                    linkAnimePage.appendChild(imgPoster)
                     imgPoster.classList.add("anime--poster")
 
-                    divAnimeContainer.appendChild(titleAnime)
+                    linkAnimePage.appendChild(titleAnime)
                     titleAnime.classList.add("anime--title")
 
 
@@ -97,10 +97,10 @@ import urlApi from './api.js'
                 let imgPoster = document.createElement("img")
                 let titleAnime = document.createElement("p")
 
-                divAnimeContainer.appendChild(imgPoster)
+                linkAnimePage.appendChild(imgPoster)
                 imgPoster.classList.add("anime--poster")
 
-                divAnimeContainer.appendChild(titleAnime)
+                linkAnimePage.appendChild(titleAnime)
                 titleAnime.classList.add("anime--title")
 
                 imgPoster.src = jsonDados.episodes[i].image_url
