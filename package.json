@@ -4,9 +4,12 @@
   "description": "Site criado para por em prática o HTML, CSS e JavaScript, onde estou usando uma API",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
   "type": "module",
+  "engines": {
+    "node": "19.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/douglasjosebarboza/AnimeLix.git"
