@@ -8,7 +8,7 @@
   },
   "type": "module",
   "engines": {
-    "node": "19.x"
+    "node": "18.x"
   },
   "repository": {
     "type": "git",
