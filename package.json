@@ -2,10 +2,10 @@
   "name": "animelix",
   "version": "1.0.0",
   "description": "Site criado para por em prática o HTML, CSS e JavaScript, onde estou usando uma API",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "type": "module",
   "engines": {
