@@ -69,6 +69,7 @@ header a {
 main{
     width: 100%;
     height: 100%;
+    min-height: 95vh;
     background-image: linear-gradient(to bottom, purple, rgb(56, 3, 56) 70%);
     background-attachment: fixed;
     box-shadow: inset 0px 7px 15px rgba(0, 0, 0, 0.5);
@@ -82,7 +83,7 @@ main{
     align-items: center;
     gap: 20px;
     width: 50%;
-    height:100vh;
+    height:100%;
 }
 .container-main--anime{
     display: flex;

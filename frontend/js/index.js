@@ -165,7 +165,7 @@
                 break;
 
             case "romance":
-                dados = await fetch(`https://api.jikan.moe/v4/anime?genres=12`)
+                dados = await fetch(`https://api.jikan.moe/v4/anime?genres=22`)
                 jsonDados = await dados.json() 
                 showAnimes('anime')
                 break;

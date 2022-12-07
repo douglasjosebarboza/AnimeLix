@@ -22,11 +22,10 @@ const preencherTela = (dados) => {
     let titleAnime = document.querySelector(".anime--title--spot")
     let posterAnime = document.querySelector(".anime-poster")
     let synopsisAnime = document.querySelector(".anime-synopsis")
-    console.log(dados)
 
     titleAnime.innerHTML = dados.data.titles[0].title
     posterAnime.src = dados.data.images.jpg.image_url
-    synopsisAnime.innerHTML = dados.data.synopsis
+    synopsisAnime.innerHTML = dados.data.synopsis.replace('[Written by MAL Rewrite]', '')
 
     let animeTrailer = document.querySelector(".anime-trailer")
     animeTrailer.src = dados.data.trailer.embed_url
