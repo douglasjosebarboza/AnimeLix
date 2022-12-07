@@ -8,10 +8,10 @@
   "name": "animelix",
   "description": "Site criado para por em prática o HTML, CSS e JavaScript, onde estou usando uma API",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon app.js",
-    "start": "node app.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
