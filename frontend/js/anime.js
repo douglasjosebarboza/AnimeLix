@@ -1,5 +1,3 @@
-import urlApi from './api.js'
-
 let loading
 const urlParams = new URLSearchParams(window.location.search)
 const animeParam = urlParams.get('anime')
@@ -14,7 +12,7 @@ const disableLoading = () => {
 
 
 const animeInfoApi = async () => {
-    let dados = await fetch(urlApi+"anime/"+animeParam+"/full")
+    let dados = await fetch("https://api.jikan.moe/v4/"+"anime/"+animeParam+"/full")
     let jsonDados = await dados.json()
     preencherTela(jsonDados)
 }

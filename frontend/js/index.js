@@ -1,5 +1,3 @@
-import urlApi from './api.js'
-
 // Variaveis Globais
     let dados
     let jsonDados
@@ -130,7 +128,7 @@ import urlApi from './api.js'
 // Função para pegar dados da API de acordo com a temporada atual
     const pesquisaInicialApi = async() => {
         removeContent()
-        dados = await fetch(`${urlApi}seasons/now`)
+        dados = await fetch(`https://api.jikan.moe/v4/seasons/now`)
         jsonDados = await dados.json()
         showAnimes('anime')
     }
@@ -144,7 +142,7 @@ import urlApi from './api.js'
         }
         else{
             removeContent()
-            dados = await fetch(`${urlApi}anime?q=${url}`)
+            dados = await fetch(`https://api.jikan.moe/v4/anime?q=${url}`)
             jsonDados = await dados.json()
             showAnimes('results')
         }
@@ -155,26 +153,25 @@ import urlApi from './api.js'
         removeContent()
         switch (genero) {
             case "acao":
-                dados = await fetch(`${urlApi}anime?genres=1`)
+                dados = await fetch(`https://api.jikan.moe/v4/anime?genres=1`)
                 jsonDados = await dados.json()   
                 showAnimes('anime')
                 break;
 
             case "drama":
-                dados = await fetch(`${urlApi}anime?genres=6`)
+                dados = await fetch(`https://api.jikan.moe/v4/anime?genres=6`)
                 jsonDados = await dados.json()  
                 showAnimes('anime')
                 break;
 
             case "romance":
-                dados = await fetch(`${urlApi}anime?genres=12`)
+                dados = await fetch(`https://api.jikan.moe/v4/anime?genres=12`)
                 jsonDados = await dados.json() 
-                console.log(jsonDados) 
                 showAnimes('anime')
                 break;
 
             case "comedia":
-                dados = await fetch(`${urlApi}anime?genres=4`)
+                dados = await fetch(`https://api.jikan.moe/v4/anime?genres=4`)
                 jsonDados = await dados.json() 
                 showAnimes('anime')
                 break;
