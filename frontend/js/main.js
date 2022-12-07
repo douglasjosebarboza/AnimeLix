@@ -1,3 +1,4 @@
+'use strict';
 import urlApi from './api.js'
 
 // Variaveis Globais
