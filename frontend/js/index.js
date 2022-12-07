@@ -15,6 +15,7 @@
 
 // Função para preencher a pagina
     const showAnimes = (param) => {
+        console.log(jsonDados.data)
         if (param === 'anime'){
             for(let i = 0; i < jsonDados.data.length; i++){
                 if(jsonDados.data[i].rating != "Rx - Hentai"){
