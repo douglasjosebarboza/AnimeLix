@@ -28,7 +28,7 @@ const preencherTela = (dados) => {
     synopsisAnime.innerHTML = dados.data.synopsis.replace('[Written by MAL Rewrite]', '')
 
     let animeTrailer = document.querySelector(".anime-trailer")
-    animeTrailer.src = `https://www.youtube.com/embed/${dados.data.trailer.youtube_id}?autoplay=0&mute=1`
+    animeTrailer.src = dados.data.trailer.url
 
 }
 
