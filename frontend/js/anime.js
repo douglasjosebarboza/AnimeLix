@@ -29,6 +29,7 @@ const preencherTela = (dados) => {
 
     let animeTrailer = document.querySelector(".anime-trailer")
     animeTrailer.src = dados.data.trailer.embed_url
+    animeTrailer.muted = true
     
 }
 
